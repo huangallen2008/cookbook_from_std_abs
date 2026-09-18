@@ -1,7 +1,7 @@
 name: Compile Codebook
 run-name: Compile codebook
 on: [push]
-jobs:
+jobs: 
   compile:
     runs-on: ubuntu-latest
     container: ghcr.io/abc864197532/codebook:latest
