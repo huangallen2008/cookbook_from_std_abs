@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set safe directory
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Check indentation
         run: |
           chmod +x scripts/check_indent.sh
@@ -31,9 +34,6 @@ jobs:
       - name: Copy PDF
         run: |
           cp /root/codebook.pdf codebook.pdf
-      - name: Set safe directory
-        run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
